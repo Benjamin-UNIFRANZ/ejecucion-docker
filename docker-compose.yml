@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: node
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+    ports:
+      - "3000:3000"
+      - "49001:49000"
+    environment:
+      NODE_ENV: production
+      # NODE_ENV: development
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+    # command: npm run dev    # Usar nodemon en desarrollo
+      command: npm run start  # Usar node en producción
+
+    volumes:
+      - .:/usr/src/app     # Montar todo el proyecto
+      - /usr/src/app/node_modules  # Volumen anónimo para node_modules
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  db:
+    container_name: postgres
+    build:
+      context: .
+      dockerfile: docker/postgres/Dockerfile  # Dockerfile de la base de datos
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge

@@ -1,0 +1,8 @@
+if errores
+  .alert.alert-danger
+    ul
+      each error in errores
+        li= error.msg
+else if success
+  .alert.alert-success
+    p= success

@@ -1,0 +1,23 @@
+extends ./layout/index
+
+block content
+  main.container.mt-5
+    .row
+      .col-md-6
+        img.img-fluid(src=`/img/destinos_${viaje.imagen}_ln.jpg`, alt=viaje.titulo)
+      .col-md-6
+        h1= viaje.titulo
+        p.lead
+          strong Precio:
+          | $#{viaje.precio}
+        p
+          strong Fecha Ida:
+          | #{viaje.fecha_ida}
+        p
+          strong Fecha Vuelta:
+          | #{viaje.fecha_vuelta}
+        p
+          strong Lugares Disponibles:
+          | #{viaje.disponibles}
+        .mt-4
+          p.descripcion= viaje.descripcion

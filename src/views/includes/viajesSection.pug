@@ -1,0 +1,12 @@
+section.viajes.py-5
+  .container
+    h2.text-center.mb-4 Viajes Destacados
+    .row
+      each viaje in viajes
+        .col-12.col-sm-6.col-md-4.mb-4
+          .card.h-100(style="width: 100%")
+            img.card-img-top(src=`/img/destinos_${viaje.imagen}.jpg`, alt=viaje.titulo)
+            .card-body
+              h5.card-title= viaje.titulo
+              p.card-text= viaje.descripcion
+              a.btn.btn-primary(href=`/viajes/info/${viaje.slug}`) Ver Más

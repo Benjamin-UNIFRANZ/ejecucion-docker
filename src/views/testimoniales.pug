@@ -1,0 +1,28 @@
+extends ./layout/index
+
+block content
+  main.container.mt-5
+    h1.text-center.mb-4 #{pagina}
+    blockquote.text-center !Comparte tu opinión sobre nuestros servicios!
+    
+    // Se reemplaza el bloque de Testimoniales por el include
+    include includes/testimonialesSection.pug
+
+    // Incluir mensajes de error si existen
+    include includes/errorMessages.pug
+
+    .row 
+      h2.d-block.w-100.text-center
+      .row.justify-content-center.col
+        .col-md-8      
+          form(method="POST" action="/testimoniales")
+            .form-group
+              label(for="nombre") Nombre:
+              input.form-control#nombre(type="text", name="nombre", required, value=nombre)
+            .form-group
+              label(for="correo") Correo Electrónico:
+              input.form-control#correo(type="email", name="correo", required, value=correo)
+            .form-group
+              label(for="mensaje") Mensaje:
+              textarea.form-control#mensaje(name="mensaje", rows="5", required)= mensaje
+            button.btn.btn-success.btn-block(type="submit") Enviar Testimonial

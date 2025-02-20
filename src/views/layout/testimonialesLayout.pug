@@ -1,0 +1,24 @@
+
+
+block slider
+  // Opcional: encabezado para testimoniales
+  section.page-header.py-4.bg-light
+    .container
+      h1.text-center Testimoniales
+
+block content
+  .container.py-5
+    h2.text-center.mb-4 Testimoniales Destacados
+    .row
+      each t in destacados
+        .col-12.col-sm-6.col-md-4.mb-4
+          .card.h-100
+            .card-body
+              p.card-text= t.mensaje
+              footer.text-right.text-muted &mdash; #{t.nombre}
+    hr
+    h2.text-center.mb-4 Otros Testimoniales
+    each t in testimoniales
+      .testimonial.mb-4
+        p= t.mensaje
+        small.text-muted= t.nombre

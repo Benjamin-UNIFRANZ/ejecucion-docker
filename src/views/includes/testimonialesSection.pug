@@ -1,0 +1,10 @@
+section.testimoniales.my-5
+  .container
+    h2.text-center.mb-4 Testimoniales
+    .row
+      each t in testimoniales
+        .col-12.col-sm-6.col-md-4.mb-4
+          .card.h-100
+            .card-body
+              p.card-text= t.mensaje
+              footer.text-right.text-muted &mdash; #{t.nombre}

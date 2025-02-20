@@ -1,0 +1,26 @@
+extends layout/index
+
+block slider
+  section.hero.slider(style="background-image: url('/img/inicio_nosotros.jpg')")
+    .overlay
+      .container
+        .row
+          .col-12.col-md-8.offset-md-2
+            h1.display-4.text-center Descubre tu próxima aventura
+            p.lead.text-center Explora destinos increíbles y experiencias inolvidables.
+
+block content
+  include includes/viajesSection.pug
+
+  section.descuento.my-5
+    .container
+      .row.align-items-center
+        .col-12.col-md-6.mb-4.mb-md-0
+          h3.titulo Oferta Exclusiva
+          p Fecha: Oferta Limitada
+          p.precio Precio: 50% Off
+          a.btn.btn-success(href="#") Aprovechar Oferta
+        .col-12.col-md-6
+          img.img-fluid(src="/img/cupon.jpg", alt="Cupón de descuento")
+
+  include includes/testimonialesSection.pug

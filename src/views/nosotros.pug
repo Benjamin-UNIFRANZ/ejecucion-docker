@@ -1,0 +1,29 @@
+extends ./layout/index
+
+block content
+  main.container.mt-5
+    // Sección principal: imagen a la izquierda y título/contenido a la derecha
+    .row.align-items-center
+      .col-md-5
+        img.img-fluid(src="/img/destinos_paris_ln.jpg", alt="Destinos Grecia")
+      .col-md-7
+        h1.mb-4 #{viajes}
+        p Descripción y varios contenidos relevantes que describen la empresa y sus destinos Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, adipisci tempora quidem velit reprehenderit fuga alias autem, minima, ad sed exercitationem commodi. Blanditiis quasi illo nisi aperiam molestias quis fugit aut porro ullam inventore iste consequatur facere sed provident voluptatibus quod quae tempora modi odio laboriosam, et placeat commodi pariatur! Quisquam, quod. Quisquam, quod. Quisquam, quod. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur perspiciatis incidunt unde dolorum, eius, sunt officiis obcaecati possimus, nostrum aperiam cupiditate nihil beatae. Ipsum illo rem quidem quaerat magni atque!
+        
+
+    // Sección de listado iconos: tres columnas en la misma línea
+    .listado-iconos 
+        .container.mt-5.text-center
+            .row
+                .col-md-4
+                    img.img-fluid(src="/img/icono_seguridad.svg", alt="Icono 1")
+                    h3 Título Icono 1
+                    p Descripción breve del icono 1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero quo omnis nostrum optio, voluptatum aperiam at ex unde nulla sed!
+                .col-md-4
+                    img.img-fluid(src="/img/icono_destinos.svg", alt="Icono 2")
+                    h3 Título Icono 2
+                    p Descripción breve del icono 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex labore quia veniam ea nobis sunt dolores aliquid, rem nam quidem?
+                .col-md-4
+                    img.img-fluid(src="/img/icono_precios.svg", alt="Icono 3")
+                    h3 Título Icono 3
+                    p Descripción breve del icono 3. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur atque eveniet incidunt id aperiam ullam, modi maxime sed. Voluptatum, tenetur.

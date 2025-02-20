@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Archivos de entorno
+.env
+
+# Archivos de compilación y caché
+dist/
+build/
+.cache/
+
+# Configuración de editores e IDEs
+.vscode/
+.idea/
+
+# Sistema operativo y otros
+.DS_Store
+Thumbs.db
+
+# Otros archivos que no se deben versionar
+coverage/
