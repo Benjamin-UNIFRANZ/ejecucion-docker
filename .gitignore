@@ -26,3 +26,5 @@ Thumbs.db
 
 # Otros archivos que no se deben versionar
 coverage/
+
+.github/workflows/ # Github Actions

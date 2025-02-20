@@ -1,9 +1,9 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Images
 
 on:
   push:
     branches:
-      - main
+      - subida-docker
 
 jobs:
   build:
@@ -21,10 +21,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Construir y subir imagen Docker
+      - name: Construir y subir imagen de la aplicación
         uses: docker/build-push-action@v4
         with:
           context: .
           file: docker/node/Dockerfile
           push: true
           tags: yourdockerhubusername/nodejs-docker-project:latest
+          build-args: 
+            NODE_ENV: ${{ secrets.NODE_ENV }}
+            PORT: ${{ secrets.PORT }}
+            POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+            POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+            POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+
+      - name: Construir y subir imagen de PostgreSQL
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: docker/postgres/Dockerfile
+          push: true
+          tags: yourdockerhubusername/postgres:latest

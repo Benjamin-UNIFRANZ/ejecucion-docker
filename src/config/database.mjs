@@ -5,11 +5,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  host: process.env.DB_HOST || '127.0.0.1',
-  port: process.env.DB_PORT || 5432,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   database: process.env.POSTGRES_DB,
-  user: process.env.DB_USER || 'benjaminRo',
-  password: process.env.POSTGRES_PASSWORD || 'G7h!kL9@pQwZ',
+  user: process.env.DB_USER,
+  password: process.env.POSTGRES_PASSWORD ,
   // Agregar search_path al esquema "viajes" 
   options: '-c search_path=viajes,public '
 
