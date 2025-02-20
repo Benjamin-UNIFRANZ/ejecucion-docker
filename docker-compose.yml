@@ -3,9 +3,10 @@ version: '3.8'
 services:
   app:
     container_name: node
-    build:
-      context: .
-      dockerfile: docker/node/Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: docker/node/Dockerfile
+    image: benjaminrortiz/nodejs-docker-project-app:latest    
     ports:
       - "3000:3000"
       - "49001:49000"
@@ -30,9 +31,10 @@ services:
 
   db:
     container_name: postgres
-    build:
-      context: .
-      dockerfile: docker/postgres/Dockerfile  # Dockerfile de la base de datos
+    # build:
+    #   context: .
+    #   dockerfile: docker/postgres/Dockerfile  # Dockerfile de la base de datos
+    image: benjaminrortiz/nodejs-docker-project-db:latest
     ports:
       - "5432:5432"
     environment:

@@ -28,4 +28,4 @@ Thumbs.db
 coverage/
 
 # GitHub workflows
-.github/workflows/
+.github/
