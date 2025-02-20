@@ -1,44 +1,44 @@
-name: Build and Push Docker Images
+# name: Build and Push Docker Images
 
-on:
-  push:
-    branches:
-      - subida-docker
+# on:
+#   push:
+#     branches:
+#       - subida-docker
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Clonar repositorio
+#         uses: actions/checkout@v3
 
-      - name: Configurar Docker Buildx
-        uses: docker/setup-buildx-action@v2
+#       - name: Configurar Docker Buildx
+#         uses: docker/setup-buildx-action@v2
 
-      - name: Iniciar sesión en Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Iniciar sesión en Docker Hub
+#         uses: docker/login-action@v2
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Construir y subir imagen de la aplicación
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: docker/node/Dockerfile
-          push: true
-          tags: yourdockerhubusername/nodejs-docker-project:latest
-          build-args: 
-            NODE_ENV: ${{ secrets.NODE_ENV }}
-            PORT: ${{ secrets.PORT }}
-            POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-            POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-            POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+#       - name: Construir y subir imagen de la aplicación
+#         uses: docker/build-push-action@v4
+#         with:
+#           context: .
+#           file: docker/node/Dockerfile
+#           push: true
+#           tags: yourdockerhubusername/nodejs-docker-project:latest
+#           build-args: 
+#             NODE_ENV: ${{ secrets.NODE_ENV }}
+#             PORT: ${{ secrets.PORT }}
+#             POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+#             POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+#             POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
 
-      - name: Construir y subir imagen de PostgreSQL
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: docker/postgres/Dockerfile
-          push: true
-          tags: yourdockerhubusername/postgres:latest
+#       - name: Construir y subir imagen de PostgreSQL
+#         uses: docker/build-push-action@v4
+#         with:
+#           context: .
+#           file: docker/postgres/Dockerfile
+#           push: true
+#           tags: yourdockerhubusername/postgres:latest
