@@ -16,6 +16,7 @@ create database  viaje;
 -- Crear un nuevo esquema llamado 'viajes'
 CREATE SCHEMA IF NOT EXISTS viajes;
 
+-- drop table if exists viajes.viajes;
 -- Crear una tabla en el esquema 'viajes'
 CREATE TABLE viajes.viajes (
     id SERIAL PRIMARY KEY,

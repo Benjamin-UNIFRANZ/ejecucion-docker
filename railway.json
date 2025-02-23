@@ -6,13 +6,6 @@
           "file": "docker-compose.yml",
           "service": "app"
         }
-      },
-      {
-        "name": "db",
-        "dockerCompose": {
-          "file": "docker-compose.yml",
-          "service": "db"
-        }
       }
     ]
   }

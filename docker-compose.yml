@@ -11,9 +11,10 @@ services:
       - "3000:3000"
       - "49001:49000"
     environment:
-      NODE_ENV: production
       # NODE_ENV: development
-      DB_HOST: db
+      # DB_HOST: db
+      NODE_ENV: production
+      DB_HOST: ${DB_HOST}
       DB_PORT: 5432
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
@@ -30,7 +31,6 @@ services:
       - backend
 
   db:
-  
     container_name: postgres
     # build:
     #   context: .
